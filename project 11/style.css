@@ -33,13 +33,27 @@ input, select, textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
+/* 
 .gender {
   
   display: flex;
   gap: 15px;
   align-items: center;
+} */
+
+.gender {
+  display: flex;
+  gap: 20px;       /* space between options */
+  align-items: center;
+  margin-top: 6px;
+  margin-bottom: 16px;
 }
+
+.gender label {
+  margin: 0;       /* remove extra margin from labels inside */
+  font-weight: normal;
+}
+
 
 button {
   background-color: #007bff;

@@ -1,69 +1,109 @@
-
- body{
-    background-color: rgb(202, 94, 94);
-    font-family: 'Poppins', sans-serif;
- }
- .container{
-    font-size: 35px; /* You can increase or decrease as needed */
-    font-weight: bold; /* Optional: Makes it bolder */
-    text-align: center; /* Optional: Centers the text */
-    width: 180px;
-    padding: 33px;
-    text-align: center;
-    background-color: #fff;
-    margin-left: 33%;
-    margin-top: 5px;
- }
- input{
-    width: 270px;
-    padding: 8px;
-    border: 2px solid rgb(6, 145, 145);
-    outline: none;
-    font-size: 19px;
-
-
- }
-
- .inputs input[type="date"],
-.inputs input[type="time"] {
-    width: 130px;
-    padding: 8px;
-    border: 2px solid rgb(6, 145, 145);
-    outline: none;
-    font-size: 16px;
-    margin-top: 5px;
-    margin-left: 5px;
+body{
+  background-color: #f6f7fb;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
 }
 
- button{
-    width: 60px;
-    height: 41px;
-    background-color: rgb(12, 247, 4);
-    color: white;
-    border: none;
-    cursor: pointer;
+.container{
+  max-width: 600px;
+  margin: 30px auto;
+  background: white;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
 
-    outline: none;
-    border-radius: 2px;
-    font-size: 19px;
- }
- .text ul{
-    position: relative;
-    background-color: rgb(136, 9, 22);
-    color: white;
-    font-size: 19px;
-    padding: 7px;
-    text-align: left;
- }
- .text ul i{
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
- }
+.inputs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
 
- .text ul small {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
-    color: #ccc;
+.inputs input[type="text"] {
+  flex: 1 1 200px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.inputs input[type="date"],
+.inputs input[type="time"] {
+  width: 140px;
+  padding: 9px;
+  font-size: 14px;
+}
+
+/* Add button */
+#addBtn {
+  padding: 10px 20px;       /* consistent size */
+  background: #16a34a;      /* green */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 80px;          /* fixed width for consistency */
+  text-align: center;
+}
+
+#addBtn:hover {
+  background: #15803d;
+}
+
+/* Delete button — same as Add, but red */
+#taskList li .del-btn {
+  padding: 10px 20px;       /* same size as Add */
+  background: #ef4444;      /* red */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 80px;          /* same width as Add */
+  text-align: center;
+}
+
+#taskList li .del-btn:hover {
+  background: #dc2626;
+}
+
+
+.text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#taskList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #fff7ed;
+  margin-bottom: 8px;
+  border: 1px solid #ffedd5;
+}
+
+#taskList li .meta {
+  text-align: right;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+#taskList li .del-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+/* Past tasks */
+#taskList li.past {
+  opacity: 0.6;
+  background: #f3f4f6;
+  color: #6b7280;
 }

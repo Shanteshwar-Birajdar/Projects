@@ -43,6 +43,7 @@ body{
 }
 
 .qr-header input, select{
+    text-align: center;
     padding: 8px;
     border-radius: var(--border-radius);
     font-size: 18px;
@@ -65,11 +66,11 @@ body{
     display: flex;
     justify-content: center;
 }
-.qr-footer a{
+.qr-footer a {
     background-color: var(--secondary-color);
     text-decoration: none;
     font-size: 20px;
-    padding: 14px, 36px;
+    padding: 14px 36px;
     margin-inline: 2px;
     color: var(--primary-color);
     font-weight: 600;
