@@ -1,71 +1,58 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(120deg, #6a11cb, #2575fc);
+  background-color: #f6f7fb;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
 }
 
 .login-container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  width: 350px;
-  text-align: center;
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
 h2 {
+  text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #333333;
 }
 
 .input-group {
   margin-bottom: 15px;
-  text-align: left;
+  margin-right: 20px;
 }
 
-label {
+.input-group label {
+  display: block;
   font-size: 14px;
-  font-weight: bold;
-  color: #333;
+  margin-bottom: 5px;
+  color: #444;
 }
 
-input {
+.input-group input {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  outline: none;
-  transition: border 0.3s;
-}
-
-input:focus {
-  border: 1px solid #2575fc;
+  font-size: 14px;
 }
 
 button {
   width: 100%;
-  padding: 12px;
-  background: #2575fc;
+  padding: 10px;
+  background: #007bff;
   border: none;
-  border-radius: 6px;
   color: white;
   font-size: 16px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #1a5cd3;
+  background: #0056b3;
 }
 
 .error {
@@ -74,8 +61,17 @@ button:hover {
   visibility: hidden;
 }
 
-#message {
-  margin-top: 15px;
-  font-size: 14px;
-  font-weight: bold;
+p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.toggle-link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none;
 }

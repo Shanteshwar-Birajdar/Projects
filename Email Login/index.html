@@ -3,28 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Login</title>
+  <title>Email Auth System</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="login-container">
-    <h2>Email Login</h2>
-    <form id="loginForm">
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input type="text" id="email" placeholder="Enter your email">
-        <small class="error"></small>
-      </div>
+    <!-- Login Section -->
+    <div id="loginSection">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Enter your email">
+          <small class="error"></small>
+        </div>
 
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password">
-        <small class="error"></small>
-      </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password">
+          <small class="error"></small>
+        </div>
 
-      <button type="submit">Login</button>
-    </form>
-    <p id="message"></p>
+        <button type="submit">Login</button>
+      </form>
+      <p id="message"></p>
+      <p>Don't have an account? <span class="toggle-link" onclick="showRegister()">Register here</span></p>
+    </div>
+
+    <!-- Register Section -->
+    <div id="registerSection" class="hidden">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <div class="input-group">
+          <label for="regEmail">Email</label>
+          <input type="text" id="regEmail" placeholder="Enter your email">
+          <small class="error"></small>
+        </div>
+
+        <div class="input-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" placeholder="Enter your password">
+          <small class="error"></small>
+        </div>
+
+        <div class="input-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm your password">
+          <small class="error"></small>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+      <p id="regMessage"></p>
+      <p>Already have an account? <span class="toggle-link" onclick="showLogin()">Login here</span></p>
+    </div>
+
+    <!-- Welcome Section -->
+    <div id="welcomeSection" class="hidden">
+      <h2>Welcome, <span id="welcomeUser"></span></h2>
+      <button onclick="logout()">Logout</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
