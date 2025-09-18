@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Order Website</title>
+
+   <!-- CSS File -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 🔹 AUTH SECTION -->
+  <div id="auth-section" class="auth-container">
+    <h1>🍔 Food Order</h1>
+
+    <!-- Login Form -->
+    <form id="login-form">
+      <h2>Login</h2>
+      <input type="email" id="login-email" placeholder="Email" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+    </form>
+
+    <!-- Register Form -->
+    <form id="register-form" style="display: none;">
+      <h2>Register</h2>
+      <input type="text" id="reg-name" placeholder="Full Name" required>
+      <input type="email" id="reg-email" placeholder="Email" required>
+      <input type="password" id="reg-password" placeholder="Password" required>
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </form>
+  </div>
+
+  <!-- 🔹 HOME SECTION -->
+  <div id="home-section" style="display:none;">
+    <header>
+      <h1>🍔 Welcome, <span id="user-name"></span></h1>
+      <button  onclick="logout()">Logout</button>
+    </header>
+
+    <main>
+      <section class="menu">
+        <h2>Menu</h2>
+        <div class="food-items">
+          <div class="item">
+            <img src="images/burger.jpg" alt="Burger">
+            <h3>Burger</h3>
+            <p>₹120</p>
+            <button onclick="addToCart('Burger',120)">Add to Cart</button>
+          </div>
+          <div class="item">
+            <img src="images/pizza.jpg" alt="Pizza">
+            <h3>Pizza</h3>
+            <p>₹250</p>
+            <button onclick="addToCart('Pizza',250)">Add to Cart</button>
+          </div>
+          <div class="item">
+            <img src="images/pasta.jpg" alt="Pasta">
+            <h3>Pasta</h3>
+            <p>₹180</p>
+            <button onclick="addToCart('Pasta',180)">Add to Cart</button>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="cart">
+        <h2>🛒 Cart</h2>
+        <ul id="cart-list"></ul>
+        <p id="total">Total: ₹0</p>
+        <button onclick="placeOrder()">Order Now</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>@ 2025 Food Order Website | Made with ❤️</p>
+    </footer>
+  </div>
+
+  <!-- JS File -->
+  <script src="script.js"></script>
+</body>
+</html>
