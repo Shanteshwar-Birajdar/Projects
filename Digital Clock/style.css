@@ -1,0 +1,18 @@
+body {
+  background: black;
+  color: lime;
+  text-align: center;
+  font-family: Arial;
+  margin-top: 150px;
+}
+
+.clock {
+  border: 2px solid lime;
+  display: inline-block;
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 40px;
+}

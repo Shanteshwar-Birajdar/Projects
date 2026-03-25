@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Management Dashboard (RBAC)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <h2>User Management Dashboard</h2>
+
+    <!-- Role Selector -->
+    <div class="role-box">
+      <label>Logged in as:</label>
+      <select id="currentRole" onchange="applyPermissions()">
+        <option value="Admin">Admin</option>
+        <option value="Manager">Manager</option>
+        <option value="Viewer">Viewer</option>
+      </select>
+    </div>
+
+    <!-- Role Task Panel -->
+    <div class="task-panel">
+      <h3>Role Tasks</h3>
+      <ul id="taskList"></ul>
+    </div>
+
+    <!-- User Form -->
+    <form id="userForm" class="form-box">
+      <input type="hidden" id="editIndex">
+
+      <input type="text" id="name" placeholder="Name">
+      <input type="email" id="email" placeholder="Email">
+
+      <select id="role">
+        <option value="">Select Role</option>
+        <option>Admin</option>
+        <option>User</option>
+      </select>
+
+      <button type="submit" id="saveBtn">Add User</button>
+    </form>
+
+    <!-- User Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="userTable"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

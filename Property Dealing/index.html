@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Property Brokerage App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🏠 Property Brokerage App</h1>
+
+    <form id="propertyForm">
+      <input type="text" id="owner" placeholder="Owner Name" required>
+      <input type="text" id="location" placeholder="Property Location" required>
+      <input type="number" id="price" placeholder="Price (₹)" required>
+
+      <select id="type" required>
+        <option value="">Select Property Type</option>
+        <option value="Flat">Flat</option>
+        <option value="House">House</option>
+        <option value="Plot">Plot</option>
+      </select>
+
+      <button type="submit">Add Property</button>
+    </form>
+
+    <ul id="propertyList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
