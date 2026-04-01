@@ -1,23 +1,39 @@
 body {
   font-family: Arial;
-  text-align: center;
-  background: #f0f0f0;
+  background: linear-gradient(to right, #74ebd5, #9face6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .container {
-  margin-top: 100px;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
 }
 
-input {
+.search-box {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  flex: 1;
   padding: 10px;
-  width: 200px;
 }
 
-button {
+.search-box button {
   padding: 10px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
-#weatherResult {
-  margin-top: 20px;
-  font-size: 18px;
+.hidden {
+  display: none;
 }

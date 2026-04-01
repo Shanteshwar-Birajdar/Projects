@@ -1,32 +1,39 @@
 async function getWeather() {
-  let city = document.getElementById("city").value;
+  const city = document.getElementById("city").value;
 
   if (city === "") {
     alert("Please enter city name");
     return;
   }
 
-  let apiKey = "YOUR_API_KEY"; // replace with your key
-  let url = `https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}`;
-
   try {
-    let response = await fetch(url);
-    let data = await response.json();
+    // Step 1: Convert city to latitude & longitude
+    const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${city}`;
+    const geoRes = await fetch(geoUrl);
+    const geoData = await geoRes.json();
 
-    if (data.cod === "404") {
-      document.getElementById("weatherResult").innerText = "City not found!";
+    if (!geoData.results) {
+      alert("City not found");
       return;
     }
 
-    let result = `
-      Temperature: ${data.main.temp} °C <br>
-      Weather: ${data.weather[0].main} <br>
-      Humidity: ${data.main.humidity}%
-    `;
+    const { latitude, longitude, name } = geoData.results[0];
 
-    document.getElementById("weatherResult").innerHTML = result;
+    // Step 2: Fetch weather using lat & long
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m`;
+
+    const weatherRes = await fetch(weatherUrl);
+    const weatherData = await weatherRes.json();
+
+    document.getElementById("weather-result").classList.remove("hidden");
+
+    document.getElementById("city-name").innerText = name;
+    document.getElementById("temp").innerText = `Temperature: ${weatherData.current.temperature_2m}°C`;
+    document.getElementById("desc").innerText = `Wind Speed: ${weatherData.current.wind_speed_10m} km/h`;
+    document.getElementById("humidity").innerText = `Data from Open-Meteo`;
 
   } catch (error) {
     console.log(error);
+    alert("Error fetching data");
   }
 }
