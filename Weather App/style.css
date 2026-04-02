@@ -37,3 +37,8 @@ body {
 .hidden {
   display: none;
 }
+
+p {
+  margin: 8px 0;
+  font-size: 16px;
+}

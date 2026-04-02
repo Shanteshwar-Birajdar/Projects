@@ -7,7 +7,7 @@ async function getWeather() {
   }
 
   try {
-    // Step 1: Convert city to latitude & longitude
+    // Step 1: Get latitude & longitude
     const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${city}`;
     const geoRes = await fetch(geoUrl);
     const geoData = await geoRes.json();
@@ -19,18 +19,28 @@ async function getWeather() {
 
     const { latitude, longitude, name } = geoData.results[0];
 
-    // Step 2: Fetch weather using lat & long
-    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m`;
+    // Step 2: Get weather data (UPDATED with pressure)
+    const weatherUrl =
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m,pressure_msl`;
 
     const weatherRes = await fetch(weatherUrl);
     const weatherData = await weatherRes.json();
 
+    console.log(weatherData); // Debugging
+
+    // Show result section
     document.getElementById("weather-result").classList.remove("hidden");
 
+    // Update UI
     document.getElementById("city-name").innerText = name;
-    document.getElementById("temp").innerText = `Temperature: ${weatherData.current.temperature_2m}°C`;
-    document.getElementById("desc").innerText = `Wind Speed: ${weatherData.current.wind_speed_10m} km/h`;
-    document.getElementById("humidity").innerText = `Data from Open-Meteo`;
+    document.getElementById("temp").innerText =
+      `Temperature: ${weatherData.current.temperature_2m}°C`;
+
+    document.getElementById("wind").innerText =
+      `Wind Speed: ${weatherData.current.wind_speed_10m} km/h`;
+
+    document.getElementById("pressure").innerText =
+      `Pressure: ${weatherData.current.pressure_msl} hPa`;
 
   } catch (error) {
     console.log(error);
